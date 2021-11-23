@@ -3,6 +3,7 @@
 
 using namespace std;
 
+// Not resolved
 class Solution {
 public:
     bool isValid(vector<vector<char>>& board, int row, int col, const char c)
