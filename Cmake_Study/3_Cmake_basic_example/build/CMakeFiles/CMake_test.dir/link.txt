@@ -1,0 +1,1 @@
+/home/kukjin.chung/proteus_work/QC/qnx_ap/3rdparty/prebuilt_QNX/host/linux/x86_64/usr/bin/qcc  -Vgcc_ntoaarch64le    CMakeFiles/CMake_test.dir/main.c.o CMakeFiles/CMake_test.dir/foo.c.o CMakeFiles/CMake_test.dir/bar.c.o  -o CMake_test  
