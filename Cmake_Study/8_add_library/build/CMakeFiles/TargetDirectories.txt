@@ -1,0 +1,5 @@
+/home/kukjin.chung/SWstudy/github/SWstudy/Cmake_Study/8_add_library/build/CMakeFiles/edit_cache.dir
+/home/kukjin.chung/SWstudy/github/SWstudy/Cmake_Study/8_add_library/build/CMakeFiles/rebuild_cache.dir
+/home/kukjin.chung/SWstudy/github/SWstudy/Cmake_Study/8_add_library/build/CMakeFiles/main.dir
+/home/kukjin.chung/SWstudy/github/SWstudy/Cmake_Study/8_add_library/build/CMakeFiles/foo2.dir
+/home/kukjin.chung/SWstudy/github/SWstudy/Cmake_Study/8_add_library/build/CMakeFiles/foo.dir
