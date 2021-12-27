@@ -5,6 +5,11 @@
 int g_i = 0;
 std::mutex g_i_mutex; // protects g_i
 
+// multithreading하기 위해서 -Wl,--no-as-needed의 option을 넣어줘야 함.
+
+//compile option
+//g++ -std=c++11 1_lockguard.cpp -pthread -lpthread -Wl,--no-as-needed
+
 void safe_increment()
 {
 
