@@ -16,7 +16,8 @@ void input()
         string url = "";
         string password = "";
         cin >> url >> password;
-        m.insert({ url, password });
+        // m.insert({ url, password });
+        m[url] = password;
     }
 
     for (int j = 0; j < M; j++) {
