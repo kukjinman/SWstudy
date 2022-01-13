@@ -63,7 +63,13 @@ int Query(int Node, int Start, int End, int Left, int Right)
 void Solution()
 {
     int Tree_Height = ceil(log2(N));
+    cout << "Tree_Height : " << Tree_Height << endl;
+
     int Tree_Size = (1 << (Tree_Height + 1));
+
+    cout << "Tree_Size : " << Tree_Size << endl;
+
+    //vector resize 시 값이 없이 해당 크기 생성
     Segment_Tree.resize(Tree_Size);
 
     Make_SegmentTree(1, 0, N - 1);
