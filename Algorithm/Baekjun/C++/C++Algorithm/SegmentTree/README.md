@@ -6,9 +6,9 @@
 4) 구간의 최댓값, 최소값 
 
 
-Basis 포함
-Update 함수 (점갱신)
-Update 함수 (범위 최소값)
+Basis 포함   
+- Update 함수 (점갱신)   
+- Update 함수 (범위 최소값)   
 
 
 
