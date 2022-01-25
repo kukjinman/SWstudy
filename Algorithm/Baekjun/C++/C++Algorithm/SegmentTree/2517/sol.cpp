@@ -14,6 +14,9 @@ bool abilityCmp(State a, State b) { return a.ability < b.ability; }
 bool idxCmp(State a, State b) { return a.idx < b.idx; }
 int query(int start, int end, int node, int left, int right)
 {
+
+    // right는 index값이어야하는데 ablity 값을 왜 넣지??
+    // tree에서의 node 범위를 설정하기 위한 left right여야 하는데...
     if (start > right || end < left) {
         return 0;
     }
@@ -46,15 +49,28 @@ int main(void)
     int segmentTreeSize = 1 << (height + 1);
     segmentTree.resize(segmentTreeSize);
     vector<State> v(N);
+
+    //v[i] 에 idx 부여 및 abil input 저장
     for (int i = 0; i < N; i++) {
         cin >> v[i].ability;
         v[i].idx = i;
     }
+
+    // abil에 따라서 sorting
+    // 구지 해줘야하나??
     sort(v.begin(), v.end(), abilityCmp);
     for (int i = 0; i < N; i++) {
+
+        // sorting 후 abil에 따른 크기 순대로 i 로 저장
         v[i].ability = i;
-    }
+        }
+
+    //idx 별로 다시 sorting
+    // 구지 다시 돌려줘야하나? 위에 것 안하면 되지 않을까?
+
     sort(v.begin(), v.end(), idxCmp);
+
+    //segment tree 접근
     for (int i = 0; i < N; i++) {
         int frontRunners = query(0, MAX, 1, 0, v[i].ability);
         cout << i - frontRunners + 1 << "\n";
