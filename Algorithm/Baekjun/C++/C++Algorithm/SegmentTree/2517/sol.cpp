@@ -14,13 +14,16 @@ bool abilityCmp(State a, State b) { return a.ability < b.ability; }
 bool idxCmp(State a, State b) { return a.idx < b.idx; }
 int query(int start, int end, int node, int left, int right)
 {
-
+    cout << "s: " << start << " e: " << end << " node : " << node << " l: " << left << " r: " << right << endl;
     // right는 index값이어야하는데 ablity 값을 왜 넣지??
     // tree에서의 node 범위를 설정하기 위한 left right여야 하는데...
     if (start > right || end < left) {
+        cout << " out range " << endl;
         return 0;
     }
     if (start >= left && end <= right) {
+
+        cout << " in range " << endl;
         return segmentTree[node];
     }
     int mid = (start + end) / 2;
@@ -72,6 +75,7 @@ int main(void)
 
     //segment tree 접근
     for (int i = 0; i < N; i++) {
+        cout << " ----------quary -------" << endl;
         int frontRunners = query(0, MAX, 1, 0, v[i].ability);
         cout << i - frontRunners + 1 << "\n";
         update(0, MAX, 1, v[i].ability);

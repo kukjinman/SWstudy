@@ -13,6 +13,7 @@ int Query(int Node, int Start, int End, int Left, int Right)
         return Segment_Tree[Node];
 
     int Mid = (Start + End) / 2;
+    //이부분 수정해야 할것으로 보인 parm 인자들이 맞지 않아보임
     return Query(Left, Right, 2 * Node, Start, Mid) + Query(Left, Right, 2 * Node + 1, Mid + 1, End); // 3
 }
 
