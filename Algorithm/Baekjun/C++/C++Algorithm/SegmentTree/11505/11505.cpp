@@ -36,9 +36,9 @@ long long Make_SegmentTree(int node, int start, int end)
 
     long long left_val = Make_SegmentTree(node * 2, start, mid);
     long long right_val = Make_SegmentTree(node * 2 + 1, mid + 1, end);
-    Segment_Tree[node] = left_val * right_val;
+    Segment_Tree[node] = (left_val * right_val) % 1000000007;
 
-    return Segment_Tree[node] % 1000000007;
+    return Segment_Tree[node];
 }
 
 long long Query(int Node, int Start, int End, int Left, int Right)
