@@ -20,22 +20,20 @@ int Update(int X, int V, int node, int start, int end)
         Update(X, V, 2 * node + 1, mid + 1, end);
 }
 
-//범위의 최소값
-//10868 예시 문제
 
-int Update(int node, int start, int end)
+// 11505 문제 idx값에 num값 update
+long long update(int node, int start, int end, int idx, int num)
 {
-
+    if (idx > end || idx < start) {
+        return seg_tree[node];
+    }
     if (start == end) {
-        Segment_Tree[node] = Arr[start];
-        return Segment_Tree[node];
+        return seg_tree[node] = num;
     }
 
-    int mid = (start + end) / 2;
+    long long Mid = (start + end) / 2;
+    long long Left_Result = update(node * 2, start, Mid, idx, num);
+    long long Right_Result = update(node * 2 + 1, Mid + 1, end, idx, num);
 
-    int min_left = Make_SegmentTree(node * 2, start, mid);
-    int min_right = Make_SegmentTree(node * 2, mid + 1, end);
-    Segment_Tree[node] = min(min_left, min_right);
-
-    return Segment_Tree[node];
+    return seg_tree[node] = (Left_Result * Right_Result) % 1000000007;
 }
