@@ -38,7 +38,7 @@ int Make_SegmentTree(int node, int start, int end)
     int mid = (start + end) / 2;
 
     int mid_left = Make_SegmentTree(node * 2, start, mid);
-    int mid_right = Make_SegmentTree(node * 2 + 1, mid, end);
+    int mid_right = Make_SegmentTree(node * 2 + 1, mid + 1, end);
     seg_tree[node] = mid_left + mid_right;
 
     return seg_tree[node];
