@@ -1,0 +1,1 @@
+/home/kukjin.chung/proteus_work/QC/qnx_ap/3rdparty/prebuilt_QNX/host/linux/x86_64/usr/bin/qcc  -Vgcc_ntoaarch64le    CMakeFiles/main.dir/main.c.o  -o main libfoo.so libbar.so -Wl,-rpath,/home/kukjin.chung/SWstudy/github/SWstudy/c++_dev/Cmake_Study/12_target_link_libraries/build 

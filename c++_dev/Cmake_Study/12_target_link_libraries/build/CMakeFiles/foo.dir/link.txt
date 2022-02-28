@@ -1,0 +1,1 @@
+/home/kukjin.chung/proteus_work/QC/qnx_ap/3rdparty/prebuilt_QNX/host/linux/x86_64/usr/bin/qcc  -Vgcc_ntoaarch64le -fPIC   -shared -Wl,-soname,libfoo.so -o libfoo.so CMakeFiles/foo.dir/foo/foo.c.o 
