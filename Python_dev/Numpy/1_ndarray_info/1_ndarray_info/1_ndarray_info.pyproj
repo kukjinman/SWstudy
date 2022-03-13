@@ -2,15 +2,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>9e318a80-dbdc-4e63-a99f-e54f35cf79c8</ProjectGuid>
+    <ProjectGuid>343f0193-e881-4a34-8d20-3fe571558be4</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>_1_arange_and_basic_math.py</StartupFile>
+    <StartupFile>_1_ndarray_info.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>1_arange_and_basic_math</Name>
-    <RootNamespace>1_arange_and_basic_math</RootNamespace>
+    <Name>1_ndarray_info</Name>
+    <RootNamespace>1_ndarray_info</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,7 +21,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="_1_arange_and_basic_math.py" />
+    <Compile Include="_1_ndarray_info.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
