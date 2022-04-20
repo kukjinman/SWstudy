@@ -1,0 +1,1 @@
+/usr/bin/cc     CMakeFiles/main.dir/main.c.o  -o main libfoo.so libbar.so -Wl,-rpath,/home/kukjin.chung/SWstudy/github/SWstudy/c++_dev/Cmake_Study/13_install/build: 

@@ -26,10 +26,14 @@ add_executable(main ${sources_service} )
 target_link_libraries(main foo bar)
 
 #This will be in 13_install
-install(TARGETS main libbar.so libfoo.so 
-        INCLUDES DESTINATION ${CMAKE_SOURCE_DIR}/include
-        RUNTIME  DESTINATION ${CMAKE_SOURCE_DIR}/bin
-        LIBRARY  DESTINATION ${CMAKE_SOURCE_DIR}/lib
-        ARCHIVE  DESTINATION ${CMAKE_SOURCE_DIR}/lib )
+
+set(CMAKE_INSTALL_PREFIX ${CMAKE_SOURCE_DIR})
+message("install path : ${CMAKE_INSTALL_PREFIX}")
+
+install(TARGETS main
+        RUNTIME  DESTINATION ${CMAKE_INSTALL_PREFIX}/bin
+        )
+
+# ?? what is the purpose of using install??
 
 

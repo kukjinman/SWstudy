@@ -1,0 +1,1 @@
+/usr/bin/cc  -fPIC   -shared -Wl,-soname,libbar.so -o libbar.so CMakeFiles/bar.dir/bar/bar.c.o 

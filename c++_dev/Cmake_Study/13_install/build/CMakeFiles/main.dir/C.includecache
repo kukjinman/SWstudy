@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../bar/bar.h
+
+../foo/foo.h
+
+/home/kukjin.chung/SWstudy/github/SWstudy/c++_dev/Cmake_Study/13_install/main.c
+bar.h
+/home/kukjin.chung/SWstudy/github/SWstudy/c++_dev/Cmake_Study/13_install/bar.h
+foo.h
+/home/kukjin.chung/SWstudy/github/SWstudy/c++_dev/Cmake_Study/13_install/foo.h
+
