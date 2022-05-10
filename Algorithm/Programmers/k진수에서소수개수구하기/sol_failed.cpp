@@ -80,6 +80,7 @@ int solution(int n, int k)
         buf += c;
     }
 
+    // 여기 buf.empty() 확인 안할때 test 12에서 fail남
     if (!buf.empty() && PrimeChecker(buf)) {
         answer++;
     }
