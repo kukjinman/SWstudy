@@ -1,84 +1,41 @@
-#include <algorithm>
-#include <iostream>
-#include <limits.h>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
-bool Can_Cross(vector<int>& v__, int k__)
-{
-
-    int jump_cnt = 1;
-
-    for (int i = 0; i < v__.size(); i++) {
-
-        if (v__[i] == 0) {
-            if (jump_cnt >= k__) {
-                // cout << " jump fail " << i << endl;
-                return false;
-            } else {
-                // cout << " jump " << jump_cnt << endl;
-
-                jump_cnt++;
-            }
-
-        } else {
-            jump_cnt = 1;
-            v__[i]--;
-        }
+bool Can_Cross(int& n, int& k__, vector<int>& v__){
+    int count = 0;
+    
+    for(int i = 0; i < v__.size(); i++){
+        if(v__[i] - n <= 0)
+            count++;
+        else
+            count = 0;
+        if(count >= k__)
+            return true;
     }
-
-    return true;
+    return false;
 }
 
-int run_Friends(vector<int>& v_, int k_)
+int binary_search(vector<int> v_, int k_)
 {
-
-    int crossed_friends = 0;
-
-    int min = INT_MAX;
-
-    min = *min_element(v_.begin(), v_.end());
-
-    crossed_friends += min;
-    cout << "c : " << crossed_friends << endl;
-
-    for (int i = 0; i < v_.size(); i++) {
-
-        if (v_[i] == 0) {
-
-        } else {
-
-            if (v_[i] - min < 0) {
-                v_[i] = 0;
-            } else
-                v_[i] -= min;
-        }
+    int first = 1, last = *max_element(v_.begin(), v_.end());
+    
+    while(first <= last){
+        int mid = (first + last) / 2;
+        if(Can_Cross(mid, k_, v_))
+            last = mid - 1;
+        else
+            first = mid + 1;
     }
 
-    while (1) {
-
-        for (int i = 0; i < v_.size(); i++) {
-            // cout << v_[i] << " ";
-        }
-        // cout << endl;
-
-        if (Can_Cross(v_, k_)) {
-            crossed_friends++;
-        } else {
-            break;
-        }
-    }
-
-    return crossed_friends;
+    return first;
 }
 
-int solution(vector<int> stones, int k)
-{
-    int answer = 0;
 
-    answer = run_Friends(stones, k);
+int solution(vector<int> stones, int k) {
 
-    return answer;
+    int ans = binary_search(stones,k);
+    return ans;
 }
