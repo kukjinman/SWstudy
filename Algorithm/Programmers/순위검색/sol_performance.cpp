@@ -14,34 +14,55 @@ typedef struct s_info {
 } S_INFO;
 
 //result
-
-// 테스트 1 〉	통과 (0.06ms, 4.09MB)
-// 테스트 2 〉	통과 (0.06ms, 3.64MB)
-// 테스트 3 〉	통과 (0.47ms, 3.57MB)
-// 테스트 4 〉	통과 (4.24ms, 4.09MB)
-// 테스트 5 〉	통과 (23.44ms, 4.17MB)
-// 테스트 6 〉	통과 (52.46ms, 4.13MB)
-// 테스트 7 〉	통과 (20.58ms, 4.23MB)
-// 테스트 8 〉	통과 (95.73ms, 4.44MB)
-// 테스트 9 〉	통과 (98.33ms, 4.31MB)
-// 테스트 10 〉	통과 (100.63ms, 4.38MB)
-// 테스트 11 〉	통과 (20.58ms, 4.17MB)
-// 테스트 12 〉	통과 (50.51ms, 4.09MB)
-// 테스트 13 〉	통과 (20.74ms, 4.26MB)
-// 테스트 14 〉	통과 (99.10ms, 4.17MB)
-// 테스트 15 〉	통과 (100.17ms, 4.17MB)
-// 테스트 16 〉	통과 (19.36ms, 4.17MB)
-// 테스트 17 〉	통과 (51.50ms, 3.92MB)
-// 테스트 18 〉	통과 (99.55ms, 4.16MB)
+// 테스트 1 〉	통과 (0.04ms, 4.16MB)
+// 테스트 2 〉	통과 (0.05ms, 4.17MB)
+// 테스트 3 〉	통과 (0.13ms, 4.15MB)
+// 테스트 4 〉	통과 (1.10ms, 3.96MB)
+// 테스트 5 〉	통과 (3.23ms, 4.06MB)
+// 테스트 6 〉	통과 (7.19ms, 4.02MB)
+// 테스트 7 〉	통과 (3.86ms, 4.44MB)
+// 테스트 8 〉	통과 (15.04ms, 5.55MB)
+// 테스트 9 〉	통과 (15.44ms, 5.54MB)
+// 테스트 10 〉	통과 (16.41ms, 5.73MB)
+// 테스트 11 〉	통과 (3.64ms, 4.17MB)
+// 테스트 12 〉	통과 (7.19ms, 4.24MB)
+// 테스트 13 〉	통과 (4.00ms, 4.3MB)
+// 테스트 14 〉	통과 (14.10ms, 4.51MB)
+// 테스트 15 〉	통과 (14.17ms, 4.5MB)
+// 테스트 16 〉	통과 (3.18ms, 4.09MB)
+// 테스트 17 〉	통과 (6.88ms, 4.17MB)
+// 테스트 18 〉	통과 (13.96ms, 4.39MB)
 
 vector<int> solution(vector<string> info, vector<string> query)
 {
     vector<int> answer;
 
+    vector<S_INFO> st_info;
 
-    //O(mn) 이라 실패
-    // answer.cpp는 O(n) + O(m) 번 수행 10만개 이상에서 효율적임.
-     
+    for (int i = 0; i < info.size(); i++) {
+
+        S_INFO tmp;
+
+        string t1 = info[i].substr(0, info[i].find(" "));
+        string next = info[i].substr(info[i].find(" ") + 1);
+        string t2 = next.substr(0, next.find(" "));
+        string next2 = next.substr(next.find(" ") + 1);
+
+        string t3 = next2.substr(0, next2.find(" "));
+        string next3 = next2.substr(next2.find(" ") + 1);
+
+        string t4 = next3.substr(0, next3.find(" "));
+        string next4 = next3.substr(next3.find(" ") + 1);
+
+        tmp.lan = t1;
+        tmp.task = t2;
+        tmp.level = t3;
+        tmp.food = t4;
+        tmp.score = stoi(next4);
+
+        st_info.push_back(tmp);
+        // cout << " t1 : " << t1 << " t2 : " << t2 << " t3 : " << t3 << " t4 : " << t4 << " scr : " << tmp.score << endl;
+    }
 
     for (int i = 0; i < query.size(); i++) {
 
@@ -100,26 +121,12 @@ vector<int> solution(vector<string> info, vector<string> query)
         // cout << " t1 : " << t1 << " t2 : " << t2 << " t3 : " << t3 << " t4 : " << t4 << " scr : " << tmp.score << endl;
 
         int cnt = 0;
-        for (int j = 0; j < info.size(); j++) {
-
-            string s1 = info[j].substr(0, info[j].find(" "));
-            string info_next = info[j].substr(info[j].find(" ") + 1);
-            string s2 = info_next.substr(0, info_next.find(" "));
-            string info_next2 = info_next.substr(info_next.find(" ") + 1);
-
-            string s3 = info_next2.substr(0, info_next2.find(" "));
-            string info_next3 = info_next2.substr(info_next2.find(" ") + 1);
-
-            string s4 = info_next3.substr(0, info_next3.find(" "));
-            string info_next4 = info_next3.substr(info_next3.find(" ") + 1);
-
-            // cout << " s1 : " << s1 << " s2 : " << s2 << " s3 : " << s3 << " s4 : " << s4 << " scr : " << stoi(info_next4) << endl;
-
+        for (int j = 0; j < st_info.size(); j++) {
             if (tmp.lan == "none") {
 
             } else {
 
-                if (s1 == tmp.lan) {
+                if (st_info[j].lan == tmp.lan) {
 
                 } else {
                     continue;
@@ -129,7 +136,7 @@ vector<int> solution(vector<string> info, vector<string> query)
             if (tmp.task == "none") {
 
             } else {
-                if (s2 == tmp.task) {
+                if (st_info[j].task == tmp.task) {
 
                 } else {
                     continue;
@@ -140,7 +147,7 @@ vector<int> solution(vector<string> info, vector<string> query)
 
             } else {
 
-                if (s3 == tmp.level) {
+                if (st_info[j].level == tmp.level) {
 
                 } else {
                     continue;
@@ -150,14 +157,14 @@ vector<int> solution(vector<string> info, vector<string> query)
             if (tmp.food == "none") {
 
             } else {
-                if (s4 == tmp.food) {
+                if (st_info[j].food == tmp.food) {
 
                 } else {
                     continue;
                 }
             }
 
-            if (stoi(info_next4) >= tmp.score) {
+            if (st_info[j].score >= tmp.score) {
                 cnt++;
             } else {
 
