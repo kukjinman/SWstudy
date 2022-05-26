@@ -6,7 +6,7 @@
 
 using namespace std;
 
-void dfs(int y, int x, int y_max, int x_max, int cur_val, vector<vector<int>> map, int& g_max_, bool visited_[][101])
+void bfs(int y, int x, int y_max, int x_max, int cur_val, vector<vector<int>> map, int& g_max_, bool visited_[][101])
 {
     int cur_max = 0;
     int dy[4] = { 0, 0, -1, 1 };
@@ -65,7 +65,7 @@ vector<int> solution(int m, int n, vector<vector<int>> picture)
             if (picture[i][j] == 0 || visited[i][j])
                 continue;
             else {
-                dfs(i, j, m, n, picture[i][j], picture, g_max, visited);
+                bfs(i, j, m, n, picture[i][j], picture, g_max, visited);
                 number_of_area++;
             }
         }
