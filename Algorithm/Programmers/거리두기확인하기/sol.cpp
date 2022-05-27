@@ -9,7 +9,7 @@ using namespace std;
 int dy[4] = { 0, 0, -1, 1 };
 int dx[4] = { 1, -1, 0, 0 };
 
-bool dfs(int y_, int x_, vector<string> map_)
+bool bfs(int y_, int x_, vector<string> map_)
 {
 
     queue<pair<pair<int, int>, int>> q;
@@ -68,7 +68,7 @@ int solve(vector<string> map)
 
             if (map[i][j] == 'P') {
 
-                ret = dfs(i, j, map);
+                ret = bfs(i, j, map);
 
                 if (ret == false)
                     return 0;
