@@ -71,7 +71,7 @@ int solution(string str1, string str2)
 
     //교집합
     for (auto it : mp1) {
-        cout << " first : " << it.first << " second : " << it.second << endl;
+        // cout << " first : " << it.first << " second : " << it.second << endl;
 
         if (mp2[it.first] >= 1) {
 
@@ -86,13 +86,13 @@ int solution(string str1, string str2)
     }
 
     for (auto it : mp2) {
-        cout << " first : " << it.first << " second : " << it.second << endl;
+        // cout << " first : " << it.first << " second : " << it.second << endl;
 
         mp2_sum += it.second;
     }
 
-    cout << " mp1 : " << mp1.size() << " mp2 : " << mp2.size() << endl;
-    cout << " mp1_sum  : " << mp1_sum << " mp2_sum : " << mp2_sum << endl;
+    // cout << " mp1 : " << mp1.size() << " mp2 : " << mp2.size() << endl;
+    // cout << " mp1_sum  : " << mp1_sum << " mp2_sum : " << mp2_sum << endl;
 
     if (mp1.size() + mp2.size() == 0) {
         if (str1_low == str2_low) {
