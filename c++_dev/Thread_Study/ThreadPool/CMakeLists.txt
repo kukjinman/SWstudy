@@ -13,5 +13,5 @@ set(CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} -pthread")
 
 include_directories(${CMAKE_SOURCE_DIR}/ThreadPool_class)
 
-add_executable(unit_test ./UnitTest/test_main.cpp ./ThreadPool_class/ThreadPool.h ./ThreadPool_class/ThreadPool.cpp)
+add_executable(unit_test ./UnitTest/test_main.cpp ./ThreadPool_class/ThreadPool.h ./ThreadPool_class/ThreadPool.cpp ./Linux_CPU_Checker/cpuChecker.h)
 
