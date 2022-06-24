@@ -14,7 +14,7 @@ vector<int> solution(vector<int> lottos, vector<int> win_nums)
 
     for (int i = 0; i < lottos.size(); i++) {
         int cur = lottos[i];
-        cout << " cur : " << cur << endl;
+        // cout << " cur : " << cur << endl;
 
         if (cur == 0) {
             z_cnt++;
@@ -22,9 +22,9 @@ vector<int> solution(vector<int> lottos, vector<int> win_nums)
         }
 
         if (find(win_nums.begin(), win_nums.end(), cur) == win_nums.end()) {
-            cout << " not in the list" << endl;
+            // cout << " not in the list" << endl;
         } else {
-            cout << " found " << endl;
+            // cout << " found " << endl;
             cnt++;
         }
     }
