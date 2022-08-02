@@ -1,20 +1,25 @@
+#include <algorithm>
 #include <iostream>
+
 using namespace std;
 
 int n = 0, m = 0;
-int num[100001];
+int num[100001] = {
+    0,
+};
+
+int sum = 0;
 
 int checker(int mid_)
 {
 
-    int cur = 0;
-    int cnt = 0;
+    int cur = mid_;
+    int cnt = 1;
 
     for (int i = 0; i < n; i++) {
 
-        if (cur > num[i]) {
+        if (cur >= num[i]) {
             cur -= num[i];
-
         }
         else {
 
@@ -24,18 +29,11 @@ int checker(int mid_)
         }
     }
 
-    if (cnt == m) {
-        // Answer!!
+    if (cnt <= m) {
         return 0;
     }
-    else if (cnt > m) {
-        // Retry
-        // 잘게 나누어짐
-        return 1;
-    }
     else {
-        // cnt가 부족 함
-        return -1;
+        return 1;
     }
 }
 
@@ -43,37 +41,36 @@ int binary_search()
 {
     int ret = 0;
 
-    int s = 0, e = 10000;
+    int s = *max_element(num, num + n);
+    int e = sum;
     int mid = 0;
 
-    while (s < e) {
+    while (s <= e) {
 
         mid = (s + e) / 2;
-
+        // cout << " mid : " << mid << endl;
         if (checker(mid) == 0) {
-            ret = mid - 1;
-            break;
-        }
-        else if (checker(mid) == 1) {
-            s = mid + 1;
+
+            e = mid - 1;
 
         }
         else {
-
-            e = mid - 1;
+            s = mid + 1;
         }
     }
 
-    return ret;
+    return mid;
 }
 
 int main()
 {
-
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
     cin >> n >> m;
 
     for (int i = 0; i < n; i++) {
         cin >> num[i];
+        sum += num[i];
     }
 
     cout << binary_search() << endl;
