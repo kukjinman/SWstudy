@@ -14,20 +14,21 @@ int main()
 
     cin >> n;
 
-    for(int i = 0; i < n;i++)
+    for (int i = 0; i < n; i++)
     {
         int num = 0;
         cin >> num;
         v.push_back(num);
     }
 
-    int s = 0; int e = n-1;
+    int s = 0; int e = n - 1;
+    int cur = 0;
     int ans = 0;
-    while(s < e)
+    while (s < e)
     {
-        ans = (e-s-1) * (min(v[s],v[e]));
-        cout << ans << endl;
-        if(v[s] < v[e])
+        cur = (e - s - 1) * (min(v[s], v[e]));
+        // cout << cur << endl;
+        if (v[s] < v[e])
         {
             s++;
         }
@@ -36,9 +37,13 @@ int main()
             e--;
         }
 
+        if (ans < cur)
+        {
+            ans = cur;
+        }
     }
 
-    cout << "ans : " << endl;
+    cout << ans << endl;
 
     return 0;
 }
