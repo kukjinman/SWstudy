@@ -39,6 +39,7 @@ int main(int argc, char** argv)
         for (int i = 0; i < n; i++)
         {
             //cout << " L : " << L[i] << endl;
+            if(mid != 0)
             cnt += L[i] / mid;
         }
 
