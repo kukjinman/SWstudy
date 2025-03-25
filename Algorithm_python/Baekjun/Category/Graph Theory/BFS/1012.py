@@ -1,52 +1,58 @@
+from pprint import pprint
 
-dx = [-1,1,0,0]
-dy = [0,0,-1,1]
+dx = [-1, 1, 0, 0]
+dy = [0, 0, -1, 1]
 
-def BFS(x,y):
-
-    queue = [(x,y)]
-    visited[x][y] = 1
-    # print(visited)
-    # print(x,y)
+def BFS(y, x):
+    queue = [(y, x)]
+    visited[y][x] = 1
+    pprint(visited)
 
     while queue:
-        x,y = queue.pop(0)
-
+        cur_y, cur_x = queue.pop(0)
+        print(cur_y, cur_x)
 
         for i in range(4):
-            nx = x + dx[i]
-            ny = y + dy[i]
+            nx = cur_x + dx[i]
+            ny = cur_y + dy[i]
 
-            if nx < 0 or nx >= M or ny < 0 or ny >= N:
+            if nx < 0 or nx >= row or ny < 0 or ny >= col:
                 continue
-            if visited[nx][ny] == 1:
+            if visited[ny][nx] == 1:
+                # print("visited")
                 continue
-            if matrix[nx][ny] == 0:
+            if matrix[ny][nx] == 0:
+                # print("matrix = 0")
                 continue
 
-            queue.append((nx,ny))
-            visited[nx][ny] = 1
-            # print(visited)
-            # print(nx,ny)
+            queue.append((ny, nx))
+            visited[ny][nx] = 1
+            # pprint(visited)
+
+    print("BFS 종료")
 
 T = int(input())
 
 for _ in range(T):
     ans = 0
-    M, N, K = map(int,input().split())
-    matrix = [[0]*(N) for _ in range(M)]
-    visited = [[0]*(N) for _ in range(M)]
+    row, col, K = map(int, input().split())
+
+    matrix = [[0] * row for _ in range(col)]
+    visited = [[0] * row for _ in range(col)]
 
     for _ in range(K):
-        a, b = map(int,input().split())
-        matrix[a][b] = 1
+        x, y = map(int, input().split())
+        matrix[y][x] = 1
 
+    pprint(matrix)
 
-
-    for a in range(M):
-        for b in range(N):
-            if visited[a][b] != 1 and matrix[a][b] == 1:
-                BFS(a,b)
+    for y in range(col):
+        for x in range(row):
+            if visited[y][x] != 1 and matrix[y][x] == 1:
+                BFS(y, x)
                 ans += 1
+                # print("x: ", x)
+                # print("y: ", y)
+                # print("ans: ", ans)
 
     print(ans)
