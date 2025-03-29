@@ -18,7 +18,7 @@ def BFS(y,x):
             nx = cur_x + dx[i]
             ny = cur_y + dy[i]
 
-            if nx < 0 or nx >= col or ny < 0 or ny >= row:
+            if nx < 0 or nx >= row or ny < 0 or ny >= col:
                 continue
             if visited[ny][nx] == 1:
                 continue
