@@ -11,7 +11,7 @@ def BFS(y,x):
     print(y,x)
 
     while queue:
-        cur_x,cur_y = queue.pop(0)
+        cur_y,cur_x = queue.pop(0)
 
 
         for i in range(4):
