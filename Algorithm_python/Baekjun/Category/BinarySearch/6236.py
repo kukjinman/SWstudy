@@ -12,16 +12,16 @@
 
 
 def binary_search(arr):
-    left = min(arr)
+    left = max(arr)
     right = sum(arr)
 
     while left <= right:
         mid = (left + right) // 2
         cash = mid
         count = 1
-        print("left:", left)
-        print("right:", right)
-        print("mid:", mid)
+        # print("left:", left)
+        # print("right:", right)
+        # print("mid:", mid)
         for i in arr:
             if cash < i:
                 count += 1
@@ -32,11 +32,11 @@ def binary_search(arr):
             left = mid + 1
         else:
             right = mid - 1
-        print("count:", count)
-        print("---------------------")
-
-    print("count:", count)
-    print("mid:", mid)
+    #     print("count:", count)
+    #     print("---------------------")
+    #
+    # print("count:", count)
+    # print("mid:", mid)
     return mid
 
 
