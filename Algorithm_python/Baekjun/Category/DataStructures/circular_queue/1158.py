@@ -18,6 +18,7 @@ for i in range(N):
     idx %= len(arr)
     answer.append(arr.pop(idx))
 
+
 print("<", end="")
 for i in range(N):
     if i == N - 1:

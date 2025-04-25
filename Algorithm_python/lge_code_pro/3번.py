@@ -12,46 +12,22 @@ dx = [-1, 1, 0, 0]
 dy = [0, 0, -1, 1]
 
 
-def dfs(y, x, target_, visited_, cnt_):
-    visited_[y][x] += 1
-
-    for i in range(4):
-        ny = y + dy[i]
-        nx = x + dx[i]
-
-        if nx < 0 or nx >= R or ny < 0 or ny >= C:
-            continue
-        if map_city[ny][nx] == '*':
-            continue
-        if visited_[ny][nx] >= 1:
-            continue
-        if map_city[ny][nx] == str(target_):
-            print(f"ny : {ny} nx : {nx}")
-            visited_[ny][nx] = visited_[y][x] + 1
-
-            print(visited_[ny][nx])
-
-        visited_[ny][nx] = visited_[y][x] + 1
-        dfs(ny, nx, target_, visited_, cnt_ + 1)
-
-
-def BFS(y, x, target_list, visited_):
+def BFS(y, x, target_list):
     for i in target_list:
 
+        queue = [(y, x)]
+        visited[y][x] = 1
         i.append('S')
         print(i)
 
         for _ in i:
-            visited_ = [[0] * (R) for _ in range(C)]
 
-            queue = [(y, x)]
-            visited_[y][x] = 1
+            visited = [[0] * (R) for _ in range(C)]
 
             cur_target = _
             print(f"cur_target: {cur_target}")
             while (queue):
                 cur_y, cur_x = queue.pop(0)
-                # print(f"cy : {cur_y} cx : {cur_x}")
 
                 for i in range(4):
                     nx = cur_x + dx[i]
@@ -59,18 +35,17 @@ def BFS(y, x, target_list, visited_):
                     # print(f"ny : {ny} nx : {nx}")
                     if nx < 0 or nx >= R or ny < 0 or ny >= C:
                         continue
-                    if visited_[ny][nx] == 1:
+                    if visited[ny][nx] == 1:
                         continue
                     if map_city[ny][nx] == '*':
                         continue
 
                     if map_city[ny][nx] == str(cur_target):
                         print(map_city[ny][nx])
-                        # print(f"ny : {ny} nx : {nx}")
-                        visited_[ny][nx] = 1
+                        break
 
                     queue.append((ny, nx))
-                    visited_[ny][nx] = 1
+                    visited[ny][nx] = 1
 
 
 arr = []
@@ -114,15 +89,7 @@ for i in range(C):
 backtracking()
 # print(search_list)
 
-for i in search_list:
-    i.append('S')
-    print(i)
-
-    for _ in i:
-        dfs(s_y_idx, s_x_idx, _, visited, 0)
-
-# BFS(s_y_idx,s_x_idx, search_list,visited)
-
+BFS(s_y_idx, s_x_idx, search_list)
 
 # 출력하는 부분
 print(sol)
