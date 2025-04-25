@@ -18,6 +18,7 @@ def update(arr_, s, e):
 
 def search(arr_,s,e):
     print(f"s_ = {s}, e = {e}")
+    # 탈출로직 손보기
     if s > e:
         return
 
@@ -40,5 +41,5 @@ def search(arr_,s,e):
 
 
 search(arr,0,len(arr)-1)
-
+# 마지막에 search와 update 추가
 
