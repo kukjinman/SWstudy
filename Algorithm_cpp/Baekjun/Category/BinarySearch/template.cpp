@@ -1,3 +1,6 @@
+#include <iostream>
+#include <vector>
+using namespace std;
 
 void binary_search(int arr[], int n, int target) {
     int left = 0;

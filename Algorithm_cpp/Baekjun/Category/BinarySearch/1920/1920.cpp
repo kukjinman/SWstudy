@@ -2,8 +2,9 @@
 #include <algorithm>
 using namespace std;
 
-void binary_search(int arr[], int n, int target)
+bool binary_search(int arr[], int n, int target)
 {
+
     bool res = false;
     int left = 0;
     int right = n - 1;
@@ -12,6 +13,7 @@ void binary_search(int arr[], int n, int target)
         int mid = (left + right) / 2;
         if (arr[mid] == target) {
             res = true;
+            return res; // Found the target, return true
         }
         else if (arr[mid] < target){
             left = mid + 1;
@@ -22,16 +24,14 @@ void binary_search(int arr[], int n, int target)
 
     }
 
-    if (res) {
-        cout << "1\n";
-    } else {
-        cout << "0\n";
 
+    return res;
 }
 
 
-void main(int argc, char* argv[])
+int main(int argc, char** argv)
 {
+    ios_base::sync_with_stdio(0);cin.tie(0);
     int n = 0;
     cin >> n;
 
@@ -50,10 +50,11 @@ void main(int argc, char* argv[])
         cin >> target;
 
         // Binary search
-        if (binary_search(arr, arr + n, target)) {
+        if (binary_search(arr, n, target)) {
             cout << "1\n";
         } else {
             cout << "0\n";
         }
     }
+    return 0;
 }
